@@ -1,0 +1,11 @@
+name: cron-v2
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "cron-v2 fired $(date -u +%Y-%m-%dT%H:%M:%SZ)"
