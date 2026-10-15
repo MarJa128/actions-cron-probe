@@ -1,0 +1,18 @@
+name: cron-probe
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Zapisz moment uruchomienia
+        run: |
+          echo "event start (UTC): $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "trigger: ${{ github.event_name }}"
+          echo "ref: ${{ github.ref }}"
